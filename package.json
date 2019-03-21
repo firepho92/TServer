@@ -2,9 +2,10 @@
     "name": "registrostemperatura",
     "version": "0.1.0",
     "description": "Server para administración de registro de temperatura",
-    "author": "René HH",
+    "author": "Alex Aguilar, René HH",
     "main": "index.js",
     "scripts": {
+        "start": "nodemon server.js",
         "test": "grunt test",
         "build": "grunt build",
         "all": "npm run build && npm run test"
@@ -15,7 +16,8 @@
         "eslint": "^1.10.3",
         "express": "^4.12.2",
         "kraken-js": "^2.0.0",
-        "mysql": "^2.16.0"
+        "mysql": "^2.16.0",
+        "nodemon": "^1.18.10"
     },
     "devDependencies": {
         "grunt": "^0.4.5",

@@ -10,20 +10,20 @@ class Registro {
     }
   }
 
-  async createRegistro(){
-    return new Promise((resolve, reject) => {
-      connection.query('INSERT INTO Registros SET ?', this.registro, (error, results, fields) => {
-        if(error) throw error;
-        resolve(true);
-      });
-    });
-  }
-
-  async readRegistro(){
+  async readRegistro() {
     return new Promise((resolve, reject) => {
       connection.query('SELECT registro_id, fecha, temperatura FROM Registros', (error, results, fields) => {
         if(error) throw error;
         resolve(results);
+      });
+    });
+  }
+
+  async createRegistro() {
+    return new Promise((resolve, reject) => {
+      connection.query('INSERT INTO Registros SET ?', {fecha: new Date(), temperatura: this.registro.temperatura}, (error, results, fields) => {
+        if(error) resolve(false);
+        resolve(true);
       });
     });
   }
